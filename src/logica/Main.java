@@ -6,7 +6,9 @@ public class Main {
     
     public static void main(String[] args) {
         
-        Principal prin = new Principal();
+        Controladora control = new Controladora();
+        
+        Principal prin = new Principal(control);
         prin.setVisible(true);
         prin.setLocationRelativeTo(null);
     }

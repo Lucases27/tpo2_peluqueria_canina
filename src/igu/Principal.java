@@ -1,8 +1,12 @@
 package igu;
 
-public class Principal extends javax.swing.JFrame {
+import logica.Controladora;
 
-    public Principal() {
+public class Principal extends javax.swing.JFrame {
+    Controladora control;
+    
+    public Principal(Controladora control) {
+        this.control = control;
         initComponents();
     }
 
@@ -89,9 +93,9 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        cbAlergico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbAlergico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No", "Sí" }));
 
-        cbAtencionEspecial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbAtencionEspecial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No", "Sí" }));
         cbAtencionEspecial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbAtencionEspecialActionPerformed(evt);
@@ -198,6 +202,11 @@ public class Principal extends javax.swing.JFrame {
         );
 
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cachorrox2.png"))); // NOI18N
 
@@ -278,7 +287,8 @@ public class Principal extends javax.swing.JFrame {
         txtObservaciones.setText("");
         txtRaza.setText("");
         txtNombre.setText("");
-        
+        cbAlergico.setSelectedIndex(0);
+        cbAtencionEspecial.setSelectedIndex(0);
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void txtColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtColorActionPerformed
@@ -288,6 +298,10 @@ public class Principal extends javax.swing.JFrame {
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
 
 
