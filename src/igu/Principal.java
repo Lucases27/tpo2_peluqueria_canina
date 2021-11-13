@@ -1,5 +1,6 @@
 package igu;
 
+import javax.swing.JOptionPane;
 import logica.Controladora;
 
 public class Principal extends javax.swing.JFrame {
@@ -94,6 +95,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         cbAlergico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No", "Sí" }));
+        cbAlergico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbAlergicoActionPerformed(evt);
+            }
+        });
 
         cbAtencionEspecial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No", "Sí" }));
         cbAtencionEspecial.addActionListener(new java.awt.event.ActionListener() {
@@ -300,8 +306,26 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNombreActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        String clienteNum = txtClienteNum.getText();
+        String celDuenio = txtCelDuenio.getText();
+        String color = txtColor.getText();
+        String nombreDuenio = txtNombreDuenio.getText();
+        String observaciones = txtObservaciones.getText();
+        String raza = txtRaza.getText();
+        String nombre = txtNombre.getText();
+        boolean alergico = cbAlergico.getSelectedIndex()==0?false:true;
+        boolean atencionEspecial = cbAtencionEspecial.getSelectedIndex()==0?false:true;
         
+        control.crearMascota(clienteNum,nombre,raza,
+            color,alergico,atencionEspecial,nombreDuenio,
+            celDuenio,observaciones);
+        
+        JOptionPane.showMessageDialog(rootPane, "Mascota agregada correctamente", "Exito", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void cbAlergicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlergicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbAlergicoActionPerformed
 
 
 
