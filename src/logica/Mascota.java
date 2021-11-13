@@ -1,7 +1,18 @@
 package logica;
 
-public class Mascota {
+import java.io.Serializable;
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Mascota implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Basic
     private String num_cliente;
     private String nombre_perro;
     private String raza;
@@ -12,7 +23,8 @@ public class Mascota {
     private String celular_duenio;
     private String observaciones;
 
-    public Mascota(String num_cliente, String nombre_perro, String raza, String color, boolean alergico, boolean atencion_especial, String nombre_duenio, String celular_duenio, String observaciones) {
+    public Mascota(int id, String num_cliente, String nombre_perro, String raza, String color, boolean alergico, boolean atencion_especial, String nombre_duenio, String celular_duenio, String observaciones) {
+        this.id = id;
         this.num_cliente = num_cliente;
         this.nombre_perro = nombre_perro;
         this.raza = raza;
@@ -27,6 +39,14 @@ public class Mascota {
     public Mascota() {
     }
 
+     public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getNum_cliente() {
         return num_cliente;
     }
